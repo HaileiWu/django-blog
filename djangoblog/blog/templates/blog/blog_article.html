@@ -1,0 +1,36 @@
+{% extends "blog/base.html" %}
+{% load blog_extras %}
+{% block content %}
+<div id="article_detail">
+	<h2>{{ article.title }}</h2>
+	<p>{{ article.text_html|safe }}</p>
+	<span>Written by {{ article.author }} on {{ article.created_date }}</span>
+</div>
+
+{% if article.comment_set.all %}
+	<h2>Comments</h2>
+	<div class="Comments">
+		{% for comment in article.comment_set.all %} 
+		   <span>
+			{{ comment.created_date }}|<a href="{{ comment.website }}">{{ comment.name }}</a>
+		   </span>
+		   <p>
+		   	{{ comment.text }}
+		   </p>
+		{% endfor %}
+	</div>
+{% endif %}
+<hr>
+<h2>Add Comment</h2>
+<form action="" method="POST">
+	{% csrf_token %}
+	<table>
+		{{ form.as_table }}
+	</table>
+	<input type="submit" name="submit" value="Submit"/>
+</form>
+{% endblock %}
+{% block sidebar %}
+	{% tags %}
+	{% archives %}
+{% endblock %}

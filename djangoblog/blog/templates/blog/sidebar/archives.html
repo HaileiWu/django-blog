@@ -1,0 +1,6 @@
+<div id='sidebar_archive'>
+    <h3>Archives</h3>
+    {% for archive_date,articles_num in archives.items %}
+    <p><em><a href="{% url 'blog_article_archive' archive_date|date:'Y' archive_date|date:'m' %}">{{ archive_date|date:"F" }}, {{ archive_date|date:"Y" }} ({{ articles_num }})</a></em></p>
+    {% endfor %}
+</div>

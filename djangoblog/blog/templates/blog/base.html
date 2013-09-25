@@ -1,0 +1,41 @@
+{% load staticfiles %}
+<html xmlns="http://www.w3.org/1999/xhml" xml:lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>ImagineZone</title><!--unique titie -->
+  <link rel="stylesheet" type="text/css" media="screen" href="{% static 'blog/styles/basic.css' %}" />
+  <script type="text/javascript" src="{% static 'blog/scripts/global.js' %}"></script>
+  <!--<script type="text/javascript" src="scripts/home.js"></script>-->
+</head>
+<body>
+  <div id="header">
+	  <img src="{% static 'blog/images/logo.png' %}" alt="ImageZone" />
+  </div>
+  <div id="navigation">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="{% url 'blog_article_list' %}">Blog</a></li>
+      <li><a href="photos.html">Photos</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+  <div id="center">
+    <div id="content">
+      <div id="innercontent">
+	     {% block content %}{% endblock %}
+      </div>
+    </div>
+    <div id="sidebar">
+     <div id="innersidebar">
+	     <div id="search">
+		     <form class="searchform" action="http://127.0.0.1:8000/blog/search/" method="get">
+			     <input class="searchfield" type="text" name="q" value="Search..."/>
+			     <input class="searchbutton" type="submit" value="Go" />
+		     </form>
+	     </div>
+	      {% block sidebar %}{% endblock %}
+      </div>
+    </div>
+  </div>
+</body>
+</html>

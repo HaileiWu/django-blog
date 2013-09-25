@@ -1,0 +1,94 @@
+body {
+  color: #fb5;
+  background-color: #334;
+}
+a:link {
+  color: blue;
+  /*background-color: #eb6;*/
+}
+a:visited {
+  color: #BA55D3;
+  background-color: #eb6;
+}
+a:hover {
+  color: blue;
+  background-color: #fb5;
+}
+a:active {
+  color: blue;
+  background-color: #ec8;
+}
+#header {
+  color: #ec8;
+  background-color: #edc;
+  border-color: #667;
+}
+#navigation {
+  /**color: #455;
+  background-color: #789;
+  border-color: #667;*/
+}
+#center {
+  color: #223;
+  background-color: #fff;
+  border-color: #667;
+}
+#content {
+  background-color: #fff;
+}
+#sidebar {
+  background-color: #fff;
+}
+#navigation ul {
+  border-color: #99a;
+}
+#navigation a:link,#navigation a:visited {
+  color: #edc;
+  background-color: transparent;
+  border-color: #99a;
+}
+#navigation a:hover {
+  color: #445;
+  background-color: #eb6;
+}
+#navigation a:active {
+  color: #667;
+  background-color: #ec8;
+}
+#navigation a.here:link,
+#navigation a.here:visited,
+#navigation a.here:hover,
+#navigation a.here:active {
+  color: #eef;
+  background-color: #799;
+}
+#content img {
+  border-color: #ba9;
+  outline-color: #dcb;
+}
+#imagegallery a {
+  background-color: transparent;
+}
+
+/*th {
+  color: #edc;
+  background-color: #455;
+}
+tr td {
+  color: #223;
+  background-color: #eb6;
+}
+tr.odd td {
+  color: #223;
+  background-color: #ec8;
+}
+tr.highlight td {
+  color: #223;
+  background-color: #cba;
+}*/
+label {
+  color: black;
+}
+.pagination {
+  color: #00DD00
+}

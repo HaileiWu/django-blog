@@ -1,0 +1,43 @@
+{% extends 'blog/base.html' %}
+{% load blog_extras %}
+
+{% block content %}
+{% for article in articles %}
+    <div id="article">
+	<a href="{% url 'blog_article_detail' article.slug %}">{{ article.title }}</a>
+	<hr />
+	<div id="article_meta">
+		<span>on {{ article.created_date }}&nbsp;|&nbsp;tags:
+			{% for tag in article.tags.all %}
+				<a href="{% url 'blog_article_tag' tag.name %}">{{ tag.name }}</a>&nbsp;
+			{% endfor %}
+		</span>
+		<span id="comment_num">
+			<a href="{% url 'blog_article_detail' article.slug %}">comment({{ article.comment_set.count }})</a>
+		</span>
+	</div>
+	<div id="article_body">
+		<p>{{ article.text_html|safe|linebreaks|truncatechars:200 }}</p>
+	</div>
+   </div>
+{% endfor %}
+
+<div class="pagination">
+	<span class="step-links">
+		{% if articles.has_previous %}
+			<a href="?page={{ articles.previous_page_number }}">previous &lt;&lt; </a>
+		{% endif %}
+		<span class="current">
+			Page {{ articles.number }} of {{ articles.paginator.num_pages }}.
+		</span>
+		{% if articles.has_next %}
+			<a href="?page={{ articles.next_page_number }}"> &gt;&gt; next</a>
+		{% endif %}
+	</span>
+</div>
+{% endblock %}
+
+{% block sidebar %}
+	{% tags %}
+	{% archives %}
+{% endblock %}
